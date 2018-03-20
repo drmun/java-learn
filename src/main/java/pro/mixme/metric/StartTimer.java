@@ -1,4 +1,4 @@
-package pro.mixme.Metric;
+package pro.mixme.metric;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,6 +1,6 @@
 package pro.mixme;
 
-import pro.mixme.Metric.StartTimer;
+import pro.mixme.metric.StartTimer;
 
 public class Main {
 
