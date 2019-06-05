@@ -9,6 +9,8 @@ import java.io.IOException;
 public class MessageController {
     private Message message;
    // private static final String message = "Hello world!";
+
+    //Конструктор принимает объект класса Message
     public MessageController (Message message){
         this.message = message;
     }

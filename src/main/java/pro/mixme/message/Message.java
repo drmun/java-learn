@@ -7,6 +7,7 @@ public class Message {
     private String user;
     private LocalDateTime dateTimeMessage;
 
+    //Метод вывода строки с данными
     public String getMessageInform(){
         return dateTimeMessage+" "+user+": "+messageText;
     }

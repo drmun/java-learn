@@ -37,7 +37,7 @@ public class MessageControllerTest {
     private MessageController messageController;
     private Message message;
 
-    {
+    { //Блок инициализации объекта класса Message для проведения тестов
         message = new Message();
         message.setDateTimeMessage(LocalDateTime.of(2019, Month.JUNE,05,21,30));
         message.setUser("NotBadUser");
