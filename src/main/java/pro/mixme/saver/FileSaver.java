@@ -11,7 +11,7 @@ public class FileSaver implements Saver {
     }
 
     @Override
-    public String save(String message) {
+    public String save(String message) throws IOException {
 
         try (Writer fileSave = new FileWriter(file, false)) {
             fileSave.write(message);
@@ -19,7 +19,7 @@ public class FileSaver implements Saver {
 
         } catch (IOException e) {
             e.printStackTrace();
-            return "Error: message was'nt saved";
+            throw e;
         }
         return "Message saved to file";
     }

@@ -7,6 +7,7 @@ import pro.mixme.saver.FileSaver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -38,7 +39,7 @@ public class MessageControllerTest {
     }
 
     @Test
-    public void handleMessage_whenSaveToConsoleSaver() {
+    public void handleMessage_whenSaveToConsoleSaver()  {
         String expected = "message was saved";
 
         String result = messageController.handleMessage(new ConsoleSaver());
@@ -47,21 +48,22 @@ public class MessageControllerTest {
     }
 
     @Test
-    public void handleMessage_whenSaveToFile_successful() {
+    public void handleMessage_whenSaveToFile_successful()  {
         String expected = "Message saved to file";
-
-        String result = messageController.handleMessage(new FileSaver(new File("str.txt")));
-
-        assertEquals(expected, result);
+        //Обработка исключения
+        try {
+            String result = messageController.handleMessage(new FileSaver(new File("str.txt")));
+            assertEquals(expected, result);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error: message was'nt saved");
+        }
     }
 
-    @Test// (expected = Exception.class)
-    public void handleMessage_whenSaveToFile_exception() {
-        String expected = "Error: message was'nt saved";
+    @Test (expected = IOException.class)
+    public void handleMessage_whenSaveToFile_exception() throws IOException {
         File file = new File("text.txt");
         file.setReadOnly();
-        String result = messageController.handleMessage(new FileSaver(file));
-
-        assertEquals(expected, result);
+        messageController.handleMessage(new FileSaver(file));
     }
 }
