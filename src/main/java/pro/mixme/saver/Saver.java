@@ -1,9 +1,11 @@
 package pro.mixme.saver;
 
+import pro.mixme.message.Message;
+
 import java.io.IOException;
 
 public interface Saver {
 
-    String save(String message) throws IOException;
+    String save(Message message) throws IOException;
 
 }

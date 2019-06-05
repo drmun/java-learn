@@ -2,12 +2,15 @@ package pro.mixme;
 
 import org.junit.Before;
 import org.junit.Test;
+import pro.mixme.message.Message;
 import pro.mixme.saver.ConsoleSaver;
 import pro.mixme.saver.FileSaver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.Month;
 
 import static org.junit.Assert.*;
 
@@ -32,10 +35,18 @@ import static org.junit.Assert.*;
 public class MessageControllerTest {
 
     private MessageController messageController;
+    private Message message;
+
+    {
+        message = new Message();
+        message.setDateTimeMessage(LocalDateTime.of(2019, Month.JUNE,05,21,30));
+        message.setUser("NotBadUser");
+        message.setMessageText("Hello world");
+    }
 
     @Before
     public void setUp() throws Exception {
-        messageController = new MessageController();
+        messageController = new MessageController(message);
     }
 
     @Test

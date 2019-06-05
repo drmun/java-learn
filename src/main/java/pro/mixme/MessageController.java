@@ -2,15 +2,19 @@ package pro.mixme;
 
 import pro.mixme.saver.ConsoleSaver;
 import pro.mixme.saver.FileSaver;
-import pro.mixme.saver.Saver;
+import pro.mixme.message.Message;
 
 import java.io.IOException;
 
 public class MessageController {
-
-    private static final String message = "Hello world!";
+    private Message message;
+   // private static final String message = "Hello world!";
+    public MessageController (Message message){
+        this.message = message;
+    }
 
     public String handleMessage(ConsoleSaver saver){
+
         return saver.save(message);
     }
 

@@ -1,5 +1,7 @@
 package pro.mixme.saver;
 
+import pro.mixme.message.Message;
+
 import java.io.*;
 
 public class FileSaver implements Saver {
@@ -11,10 +13,10 @@ public class FileSaver implements Saver {
     }
 
     @Override
-    public String save(String message) throws IOException {
+    public String save(Message message) throws IOException {
 
         try (Writer fileSave = new FileWriter(file, false)) {
-            fileSave.write(message);
+            fileSave.write(message.getMessageInform());
             fileSave.flush();
 
         } catch (IOException e) {
