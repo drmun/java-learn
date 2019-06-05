@@ -3,6 +3,10 @@ package pro.mixme;
 import org.junit.Before;
 import org.junit.Test;
 import pro.mixme.saver.ConsoleSaver;
+import pro.mixme.saver.FileSaver;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 import static org.junit.Assert.*;
 
@@ -44,11 +48,19 @@ public class MessageControllerTest {
 
     @Test
     public void handleMessage_whenSaveToFile_successful() {
-        // todo написать тест
+        String expected = "Message saved to file";
+
+        String result = messageController.handleMessage(new FileSaver(new File("str.txt")));
+
+        assertEquals(expected, result);
     }
 
-    @Test(expected = Exception.class)
+    @Test//(expected = Exception.class)
     public void handleMessage_whenSaveToFile_exception() {
-        // todo написать тест
+        String expected = "Error: message was'nt saved";
+
+        String result = messageController.handleMessage(new FileSaver(new File("com/ru/text.txt")));
+
+        assertEquals(expected, result);
     }
 }
