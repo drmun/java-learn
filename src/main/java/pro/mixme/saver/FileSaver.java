@@ -12,16 +12,18 @@ public class FileSaver implements Saver {
 
     @Override
     public String save(String message) {
+        Writer fileSave = new FileWriter(file, true);
+        try () {
 
-        try {
-
-            Writer fileSave = new FileWriter(file, true);
+           // Writer fileSave = new FileWriter(file, true);
             fileSave.write(message);
             fileSave.flush();
-
+            fileSave.
         } catch (IOException e) {
             e.printStackTrace();
             return "Error: message was'nt saved";
+        } finally {
+            fileSave.close();
         }
         return "Message saved to file";
     }
