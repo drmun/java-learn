@@ -1,9 +1,6 @@
 package pro.mixme.saver;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.Writer;
+import java.io.*;
 
 public class FileSaver implements Saver {
 
@@ -17,16 +14,12 @@ public class FileSaver implements Saver {
     public String save(String message) {
 
         try {
-         //   if (file.exists()) {
-                Writer writeFile = new FileWriter(file, false);
-                writeFile.write(message);
-                writeFile.flush();
-         //   } else {
-         //      throw new FileNotFoundException();
-         ///   }
 
+            Writer fileSave = new FileWriter(file, true);
+            fileSave.write(message);
+            fileSave.flush();
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
             return "Error: message was'nt saved";
         }

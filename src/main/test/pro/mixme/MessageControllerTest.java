@@ -58,8 +58,9 @@ public class MessageControllerTest {
     @Test// (expected = Exception.class)
     public void handleMessage_whenSaveToFile_exception() {
         String expected = "Error: message was'nt saved";
-
-        String result = messageController.handleMessage(new FileSaver(new File("com/ru/text.txt")));
+        File file = new File("text.txt");
+        file.setReadOnly();
+        String result = messageController.handleMessage(new FileSaver(file));
 
         assertEquals(expected, result);
     }
