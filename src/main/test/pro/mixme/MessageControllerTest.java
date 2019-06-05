@@ -55,7 +55,7 @@ public class MessageControllerTest {
         assertEquals(expected, result);
     }
 
-    @Test//(expected = Exception.class)
+    @Test// (expected = Exception.class)
     public void handleMessage_whenSaveToFile_exception() {
         String expected = "Error: message was'nt saved";
 
