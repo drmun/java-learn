@@ -1,23 +1,24 @@
 package pro.mixme.author;
 
 import pro.mixme.message.Message;
-
 import java.util.Date;
 
-public class User implements Author {
-    private String nikename;
+import static java.lang.System.currentTimeMillis;
 
-    public User(String nikename) {
-        this.nikename = nikename;
+public class User implements Author {
+
+    private String name;
+
+    public User(String name) {
+        this.name = name;
     }
 
     @Override
     public Message postMessage(String textMessage) {
         Message message = new Message();
+        message.setAuthor(this);
         message.setMessageText(textMessage);
-        Date currentDateTime = new Date();
-        message.setDateTimeMessage(currentDateTime.toString());
-        message.setAuthor(nikename);
+        message.setDateTimeMessage(new Date(currentTimeMillis()));
         return message;
     }
 

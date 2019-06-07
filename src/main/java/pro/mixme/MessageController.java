@@ -1,8 +1,8 @@
 package pro.mixme;
 
+import pro.mixme.message.Message;
 import pro.mixme.saver.ConsoleSaver;
 import pro.mixme.saver.FileSaver;
-import pro.mixme.message.Message;
 
 import java.io.IOException;
 

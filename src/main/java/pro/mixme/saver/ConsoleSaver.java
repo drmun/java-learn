@@ -6,7 +6,7 @@ public class ConsoleSaver implements Saver {
 
     @Override
     public String save(Message message) {
-        System.out.println(message.getLogMessage());
+        System.out.println(message);
         return "message was saved";
     }
 

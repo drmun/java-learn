@@ -19,21 +19,21 @@ import java.time.Month;
 import static org.junit.Assert.*;
 
 /**
- * @Before
+ * '@Before'
  * Метод, помеченный аннотацией @Before, отрабатывает перед каждым тестом
  * В нем описывается общее для всех тестов поведение
  *
- * @After
+ * '@After'
  * Метод, помеченный аннотацией @After, отрабатывает после каждого теста
  * Как правило используется для обнуления состояний и очистки даннных
  *
- * @Test
+ * '@Test'
  * Аннотацией @Test помечается метод теста.
  * Тестовый метод должен быть public void.
  * Существуют параметризованные тесты, это отдельная тема.
  * Методы класса org.junit.Assert проверяют результат выполнения.
  *
- * @Test(expected = IOException.class)
+ * '@Test(expected' = IOException.class)
  * Если ожидается выброс исключения, к аннотации добавляется параметр
  */
 public class MessageControllerTest {
@@ -42,14 +42,10 @@ public class MessageControllerTest {
     private Message message;
     private Author author;
 
-    { //Блок инициализации объекта классов Author и Message для проведения тестов
-        message = new Message();
+    @Before
+    public void setUp() {
         author = new User("NoBadUser"); //Пользователь
         message = author.postMessage("Чуть не лопнул череп");
-    }
-
-    @Before
-    public void setUp() throws Exception {
         messageController = new MessageController(message);
     }
 

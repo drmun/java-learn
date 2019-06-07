@@ -5,31 +5,43 @@ import pro.mixme.author.Author;
 import java.util.Date;
 
 public class Message {
-    private String author;
-    private String dateTimeMessage;
+
+    private Author author;
+    private Date dateTimeMessage;
     private String messageText;
 
-    //Метод вывода строки с данными
-    public String getLogMessage(){
-            return dateTimeMessage + " " + author + ": " + messageText;
+
+    public Author getAuthor() {
+        return author;
     }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Date getDateTimeMessage() {
+        return dateTimeMessage;
+    }
+
+    public void setDateTimeMessage(Date dateTimeMessage) {
+        this.dateTimeMessage = dateTimeMessage;
+    }
+
+    public String getMessageText() {
+        return messageText;
+    }
+
     public void setMessageText(String messageText) {
         this.messageText = messageText;
     }
 
-    public String getDateTimeMessage() {
-        return dateTimeMessage;
-    }
 
-    public void setDateTimeMessage(String dateTimeMessage) {
-        this.dateTimeMessage = dateTimeMessage;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
+    @Override
+    public String toString() {
+        return "Message{" +
+                "author=" + author +
+                ", dateTimeMessage=" + dateTimeMessage +
+                ", messageText='" + messageText + '\'' +
+                '}';
     }
 }
