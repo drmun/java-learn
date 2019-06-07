@@ -1,9 +1,9 @@
 package pro.mixme.author;
 
-public class User extends Author {
+public class User implements Author {
 
-    {
-        sendingMessage=false;
+    @Override
+    public String postMessage() {
+        return "i am user";
     }
-
 }

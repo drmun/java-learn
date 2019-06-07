@@ -43,13 +43,13 @@ public class MessageControllerTest {
     private Author author,banAutor;
 
     { //Блок инициализации объекта классов Author и Message для проведения тестов
-        author = new User(); //Пользователь, запрет на сообщения
-        author.nickname="PuPoK";
-        author.longName="Иванов Иван Иваныч";
+        author = new User(); //Пользователь
+       // author.nickname="PuPoK";
+      //  author.longName="Иванов Иван Иваныч";
 
         message = new Message(author);
         message.setDateTimeMessage(LocalDateTime.of(2019, Month.JUNE,05,21,30));
-        message.setMessageText("Hello world"); //Сообщение пользователя
+      //  message.setMessageText("Hello world"); //Сообщение пользователя
     }
 
     @Before

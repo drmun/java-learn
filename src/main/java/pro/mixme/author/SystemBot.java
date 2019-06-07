@@ -2,10 +2,11 @@ package pro.mixme.author;
 
 import pro.mixme.author.access.Access;
 
-public class SystemBot extends Author {
+public class SystemBot implements Author {
 
-    {
-        sendingMessage=true;
+
+    @Override
+    public String postMessage() {
+        return "i am sysBot";
     }
-
 }
