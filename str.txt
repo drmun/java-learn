@@ -1,1 +1,1 @@
-2019-06-05T21:30 pro.mixme.author.User@1cf4f579: i am user
+Fri Jun 07 19:12:32 MSK 2019 User{nikename='NoBadUser'}: null

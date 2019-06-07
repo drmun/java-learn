@@ -1,29 +1,32 @@
 package pro.mixme.message;
 
 import pro.mixme.author.Author;
-import pro.mixme.author.access.Access;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Message {
     private Author author;
-    private LocalDateTime dateTimeMessage;
-
+    private String dateTimeMessage;
+    public Date date;
+    private String messageText;
     public Message(Author author) {
         this.author = author;
+        date = new Date();
     }
 
     //Метод вывода строки с данными
-
     public String getLogMessage(){
-            return dateTimeMessage + " " + author + ": " + author.postMessage();
+            return dateTimeMessage + " " + author + ": " + messageText;
+    }
+    public void setMessageText(String messageText) {
+        this.messageText = messageText;
     }
 
-    public LocalDateTime getDateTimeMessage() {
+    public String getDateTimeMessage() {
         return dateTimeMessage;
     }
 
-    public void setDateTimeMessage(LocalDateTime dateTimeMessage) {
+    public void setDateTimeMessage(String dateTimeMessage) {
         this.dateTimeMessage = dateTimeMessage;
     }
 }
