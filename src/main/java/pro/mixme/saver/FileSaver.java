@@ -16,7 +16,7 @@ public class FileSaver implements Saver {
     public String save(Message message) throws IOException {
 
         try (Writer fileSave = new FileWriter(file, false)) {
-            fileSave.write(message.getMessageInform());
+            fileSave.write(message.getLogMessage());
             fileSave.flush();
 
         } catch (IOException e) {

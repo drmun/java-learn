@@ -1,15 +1,27 @@
 package pro.mixme.message;
 
+import pro.mixme.author.Author;
+import pro.mixme.author.access.Access;
+
 import java.time.LocalDateTime;
 
 public class Message {
     private String messageText;
-    private String user;
+    private Author author;
     private LocalDateTime dateTimeMessage;
 
+    public Message(Author author) {
+        this.author = author;
+    }
+
     //Метод вывода строки с данными
-    public String getMessageInform(){
-        return dateTimeMessage+" "+user+": "+messageText;
+
+    public String getLogMessage(){
+        if (Access.checkMessageAccess(author)) {
+            return dateTimeMessage + " " + author + ": " + messageText;
+        }else{
+            return dateTimeMessage + " " + author + ": Message BAN!!!";
+        }
     }
     public String getMessageText() {
         return messageText;
@@ -17,14 +29,6 @@ public class Message {
 
     public void setMessageText(String messageText) {
         this.messageText = messageText;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
 
     public LocalDateTime getDateTimeMessage() {

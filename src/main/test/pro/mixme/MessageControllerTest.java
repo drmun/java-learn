@@ -1,7 +1,11 @@
 package pro.mixme;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import pro.mixme.author.Administrator;
+import pro.mixme.author.Author;
+import pro.mixme.author.User;
 import pro.mixme.message.Message;
 import pro.mixme.saver.ConsoleSaver;
 import pro.mixme.saver.FileSaver;
@@ -36,12 +40,16 @@ public class MessageControllerTest {
 
     private MessageController messageController;
     private Message message;
+    private Author author,banAutor;
 
-    { //Блок инициализации объекта класса Message для проведения тестов
-        message = new Message();
+    { //Блок инициализации объекта классов Author и Message для проведения тестов
+        author = new User(); //Пользователь, запрет на сообщения
+        author.nickname="PuPoK";
+        author.longName="Иванов Иван Иваныч";
+
+        message = new Message(author);
         message.setDateTimeMessage(LocalDateTime.of(2019, Month.JUNE,05,21,30));
-        message.setUser("NotBadUser");
-        message.setMessageText("Hello world");
+        message.setMessageText("Hello world"); //Сообщение пользователя
     }
 
     @Before
