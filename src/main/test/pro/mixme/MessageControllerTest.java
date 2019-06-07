@@ -43,11 +43,9 @@ public class MessageControllerTest {
     private Author author;
 
     { //Блок инициализации объекта классов Author и Message для проведения тестов
+        message = new Message();
         author = new User("NoBadUser"); //Пользователь
-        author.postMessage("Чуть не лопнул череп");
-
-        message = new Message(author);
-
+        message = author.postMessage("Чуть не лопнул череп");
     }
 
     @Before
@@ -58,9 +56,7 @@ public class MessageControllerTest {
     @Test
     public void handleMessage_whenSaveToConsoleSaver()  {
         String expected = "message was saved";
-
         String result = messageController.handleMessage(new ConsoleSaver());
-
         assertEquals(expected, result);
     }
 

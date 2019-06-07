@@ -1,1 +1,1 @@
-Fri Jun 07 19:12:32 MSK 2019 User{nikename='NoBadUser'}: null
+Fri Jun 07 19:45:35 MSK 2019 NoBadUser: Чуть не лопнул череп

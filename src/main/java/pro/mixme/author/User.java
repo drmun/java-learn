@@ -13,17 +13,12 @@ public class User implements Author {
 
     @Override
     public Message postMessage(String textMessage) {
-        Message message = new Message(this);
+        Message message = new Message();
         message.setMessageText(textMessage);
         Date currentDateTime = new Date();
         message.setDateTimeMessage(currentDateTime.toString());
+        message.setAuthor(nikename);
         return message;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "nikename='" + nikename + '\'' +
-                '}';
-    }
 }

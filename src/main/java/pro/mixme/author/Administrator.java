@@ -1,20 +1,25 @@
 package pro.mixme.author;
 
-import pro.mixme.author.access.Access;
+
 import pro.mixme.message.Message;
 
 import java.util.Date;
 
 public class Administrator implements Author {
+    private String nikename;
 
-
+    public Administrator(String nikename) {
+        this.nikename = nikename;
+    }
 
     @Override
     public Message postMessage(String textMessage) {
-        Date curentDateTime = new Date();
-        Message message = new Message(?);
+        Message message = new Message();
         message.setMessageText(textMessage);
-        message.setDateTimeMessage(curentDateTime.toString());
+        Date currentDateTime = new Date();
+        message.setDateTimeMessage(currentDateTime.toString());
+        message.setAuthor(nikename);
         return message;
     }
+
 }

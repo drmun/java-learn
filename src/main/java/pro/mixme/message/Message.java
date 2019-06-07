@@ -5,14 +5,9 @@ import pro.mixme.author.Author;
 import java.util.Date;
 
 public class Message {
-    private Author author;
+    private String author;
     private String dateTimeMessage;
-    public Date date;
     private String messageText;
-    public Message(Author author) {
-        this.author = author;
-        date = new Date();
-    }
 
     //Метод вывода строки с данными
     public String getLogMessage(){
@@ -28,5 +23,13 @@ public class Message {
 
     public void setDateTimeMessage(String dateTimeMessage) {
         this.dateTimeMessage = dateTimeMessage;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
