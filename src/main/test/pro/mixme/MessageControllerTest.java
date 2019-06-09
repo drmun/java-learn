@@ -5,8 +5,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import pro.mixme.author.Administrator;
 import pro.mixme.author.Author;
+import pro.mixme.author.SystemBot;
 import pro.mixme.author.User;
 import pro.mixme.message.Message;
+import pro.mixme.message.MessageTemplate;
 import pro.mixme.saver.ConsoleSaver;
 import pro.mixme.saver.FileSaver;
 
@@ -39,13 +41,15 @@ import static org.junit.Assert.*;
 public class MessageControllerTest {
 
     private MessageController messageController;
-    private Message message;
+    private MessageTemplate message;
     private Author author;
 
     @Before
     public void setUp() {
-        author = new User("NoBadUser"); //Пользователь
-        message = author.postMessage("Чуть не лопнул череп");
+     //   author = new User("NoBadUser"); //Пользователь
+     //   author = new SystemBot();
+        author = new Administrator();
+        message = author.postMessage("pattern Decorator");
         messageController = new MessageController(message);
     }
 
