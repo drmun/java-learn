@@ -1,24 +1,22 @@
 package pro.mixme;
 
-import pro.mixme.message.Message;
-import pro.mixme.message.MessageTemplate;
 import pro.mixme.saver.ConsoleSaver;
 import pro.mixme.saver.FileSaver;
 
 import java.io.IOException;
 
 public class MessageController {
-    private MessageTemplate message;
+    private String message;
    // private static final String message = "Hello world!";
 
     //Конструктор принимает объект класса Message
-    public MessageController (MessageTemplate message){
+    public MessageController (String message){
         this.message = message;
     }
 
     public String handleMessage(ConsoleSaver saver){
 
-        return saver.save(message);
+        return (String) saver.save(message);
     }
 
     //Перегрузка метода

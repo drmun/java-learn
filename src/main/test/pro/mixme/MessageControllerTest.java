@@ -1,24 +1,16 @@
 package pro.mixme;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import pro.mixme.author.Administrator;
 import pro.mixme.author.Author;
-import pro.mixme.author.SystemBot;
-import pro.mixme.author.User;
-import pro.mixme.message.Message;
-import pro.mixme.message.MessageTemplate;
 import pro.mixme.saver.ConsoleSaver;
 import pro.mixme.saver.FileSaver;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.Month;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * '@Before'
@@ -41,7 +33,7 @@ import static org.junit.Assert.*;
 public class MessageControllerTest {
 
     private MessageController messageController;
-    private MessageTemplate message;
+    private String message;
     private Author author;
 
     @Before

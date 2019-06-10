@@ -4,7 +4,7 @@ import pro.mixme.author.Author;
 
 import java.util.Date;
 
-public class Message implements MessageTemplate{
+public class Message {
 
     private Author author;
     private Date dateTimeMessage;
