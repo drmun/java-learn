@@ -31,7 +31,8 @@ public class MessageLoaderTest {
         authors.addAll(Arrays.asList(user,administrator,systemBot));
 
         messages = new ArrayList<Message>();
-        for (int i=0;i<10;i++){
+        for (int i=0;i<10;i++,Thread.sleep(1000)){
+
             messages.add(user.postMessage("Hello #"+i));
             messages.add(administrator.postMessage("Admin #"+i));
             messages.add(systemBot.postMessage("System #"+i));
