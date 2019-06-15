@@ -1,7 +1,9 @@
 package pro.mixme.author;
 
 
+import pro.mixme.message.Message;
+
 public interface Author {
 
-    String postMessage(String message);
+    Message postMessage(String message);
 }

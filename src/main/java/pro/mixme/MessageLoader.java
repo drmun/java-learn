@@ -3,8 +3,10 @@ package pro.mixme;
 import pro.mixme.author.Author;
 import pro.mixme.message.Message;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class MessageLoader {
 
@@ -19,9 +21,15 @@ public class MessageLoader {
      */
     public Map<Author,List<Message>> showHistory(List<Message> messages, List<Author> authors) {
 
-        // todo method body by javadoc with java streams
+        Map<Author,List<Message>> resultAutorMessage;
 
-        return null;
+        resultAutorMessage = messages
+                .stream()
+                .filter(message -> authors.contains(message.getAuthor()))
+                .sorted(Comparator.comparing(Message::getDateTimeMessage))
+                .collect(Collectors.groupingBy(Message::getAuthor));
+
+        return resultAutorMessage;
     }
 
 }

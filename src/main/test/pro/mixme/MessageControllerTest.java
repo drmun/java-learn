@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import pro.mixme.author.Administrator;
 import pro.mixme.author.Author;
+import pro.mixme.message.Message;
 import pro.mixme.saver.ConsoleSaver;
 import pro.mixme.saver.FileSaver;
 
@@ -33,7 +34,7 @@ import static org.junit.Assert.assertEquals;
 public class MessageControllerTest {
 
     private MessageController messageController;
-    private String message;
+    private Message message;
     private Author author;
 
     @Before

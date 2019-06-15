@@ -1,7 +1,8 @@
 package pro.mixme.message;
 
 public class SysBotDecorator {
-    public String format (Message message){
-        return message.toString()+"(@SysBot)";
+    public Message format (Message message){
+        message.setMessageText(message.getMessageText()+"(@SysBot)");
+        return message;
     }
 }

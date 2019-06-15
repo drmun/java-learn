@@ -10,7 +10,7 @@ import static java.lang.System.currentTimeMillis;
 public class Administrator implements Author {
 
     @Override
-    public String postMessage(String textMessage) {
+    public Message postMessage(String textMessage) {
         Message message = new Message();
         message.setAuthor(this);
         message.setMessageText(textMessage);

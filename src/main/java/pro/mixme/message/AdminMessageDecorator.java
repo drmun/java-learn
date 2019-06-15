@@ -2,8 +2,9 @@ package pro.mixme.message;
 
 public class AdminMessageDecorator {
 
-    public String format (Message message){
-        return message.toString().toUpperCase();
+    public Message format (Message message){
+        message.setMessageText(message.getMessageText()+"(@Admin)");
+        return message;
     }
 
 }
