@@ -3,10 +3,15 @@ package pro.mixme;
 import pro.mixme.author.Author;
 import pro.mixme.message.Message;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Map;
+
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.groupingBy;
 
 public class MessageLoader {
+
+    private List<Author> authors;
 
     /**
      * 1. Фильтрует сообщения по авторам из списка авторов
@@ -18,16 +23,16 @@ public class MessageLoader {
      * @return Представление Автор:СписокСообщений
      */
     public Map<Author,List<Message>> showHistory(List<Message> messages, List<Author> authors) {
-
-        Map<Author,List<Message>> resultAutorMessage;
-
-        resultAutorMessage = messages
+        this.authors = authors;
+        return messages
                 .stream()
-                .filter(message -> authors.contains(message.getAuthor()))
-                .sorted(Comparator.comparing(Message::getDateTimeMessage))
-                .collect(Collectors.groupingBy(Message::getAuthor));
+                .filter(this::filterAuthors)
+                .sorted(comparing(Message::getDateTimeMessage))
+                .collect(groupingBy(Message::getAuthor));
+}
 
-        return resultAutorMessage;
+    private boolean filterAuthors(Message message) {
+        return authors.contains(message.getAuthor());
     }
 
 }
